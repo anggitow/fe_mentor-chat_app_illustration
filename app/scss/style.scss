@@ -1,1 +1,50 @@
-@use "./globals";
+@use "./globals" as g;
+
+.background {
+  position: relative;
+  min-height: 100vh;
+
+  &-left,
+  &-right {
+    position: absolute;
+    width: 100%;
+    height: 500px;
+
+    @include g.lg {
+      width: 30%;
+      min-width: 300px;
+      max-width: 33%;
+    }
+  }
+
+  &-left {
+    top: 0;
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+    transform: translateX(-50%);
+    background-image: linear-gradient(
+      90deg,
+      var(--light-violet),
+      var(--light-magenta)
+    );
+
+    @include g.lg {
+      left: 0;
+      transform: translateX(-20%);
+    }
+  }
+
+  &-right {
+    bottom: 0;
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+    transform: translateX(50%);
+    background-color: var(--grayish-blue);
+    opacity: 0.15;
+
+    @include g.lg {
+      right: 0;
+      transform: translateX(25%);
+    }
+  }
+}
